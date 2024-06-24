@@ -1,0 +1,16 @@
+Test domæne
+
+Domainname	Kredit.Dylan.local
+Switch name	KreditSwitch
+NetværksID	180.222.7.0 / 24
+Subnet		255.255.255.0
+DGW		180.222.7.1
+Primary DNS	180.222.7.2
+Alternate DNS	180.222.7.3
+
+
+Servernavn	Hyper-v bane	IP-adresse	Roles				Ram	HDD
+DC1		Test-DC1	180.222.7.2	Global catalog, ADDS, DNS,DHCP	2gb	40gb
+DC2		Test-DC2	180.222.7.3	ADDS, DNS			2gb	40gb
+FS		Test-FS		180.222.7.3					2gb	40gb 40gb 40gb
+CL		Test-CL		180.222.7.10 eller DHCP				2gb	40gb

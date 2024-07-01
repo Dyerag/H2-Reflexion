@@ -1,0 +1,1 @@
+MDF filen for AdventureWorks databasen er for stor, til at blive lagt i repo.

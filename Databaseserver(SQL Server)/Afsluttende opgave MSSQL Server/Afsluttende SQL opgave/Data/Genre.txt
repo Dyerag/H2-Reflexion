@@ -1,0 +1,6 @@
+,ROMANTIK,romantik
+,KOMEDIE,komedie
+,TEGNEFILM,tegnefilm
+,ACTION,action
+,FAMILIE,familie
+,GYSER,gyser

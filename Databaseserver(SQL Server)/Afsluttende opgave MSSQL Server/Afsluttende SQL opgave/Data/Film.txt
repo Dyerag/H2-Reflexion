@@ -1,0 +1,11 @@
+,Niceville,Tate Taylor,140,1999-09-15,1
+,Svindel på højt plan,Brett Ratner,115,1998-08-15,2
+,Løvernes konge,Disney,89,1997-07-12,3
+,Venskab med fryns,Ivan Reitman,110,1996-06-05,2
+,Tømmermænd i Thailand,Tood Philip,120,1992-04-26,2
+,Fast and furious 5,Justin Lin,130,1990-03-24,4
+,Red riding hood,Chatherine Hardwicke,125,1997-02-20,5
+,Ritualet,Mikael Hafstrøm,108,1994-05-06,6
+,Yogi bear,Eric Brevig,80,1996-05-02,3
+,The Twilight saga,Bill Condon,125,1994-03-04,1
+,Rejsen til jordens indre,Eric Brevig,120,1996-02-04,4

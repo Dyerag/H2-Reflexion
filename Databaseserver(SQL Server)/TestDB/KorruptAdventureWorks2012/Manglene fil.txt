@@ -1,0 +1,1 @@
+"Master Data File"(MDF) til KorruptAdventureWorks2012 ligger her ikke, fordi filen er for stor

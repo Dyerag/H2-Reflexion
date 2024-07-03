@@ -1,0 +1,42 @@
+dn: OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Firm
+
+dn: OU=Sales,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Sales
+
+dn: OU=Development,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Development
+
+dn: OU=IT,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: IT
+
+dn: OU=Managers,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Managers
+
+dn: OU=Marketing,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Marketing
+
+dn: OU=Research,OU=firm,DC=Test,dc=local
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: Research
+

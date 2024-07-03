@@ -1,0 +1,37 @@
+﻿Serverteknologi - Opgave 073   -    ver. 15-05-2023
+
+Beskrivelse: Iværksæt Folder Redirection
+
+
+1. Opret en ny mappe på DC1:  "D:\FolderRedirect"
+
+NTFS Security på mappen D:\FolderRedirect:
+
+	Creator Owner = Full Control										- Subfolders and Files only
+	Administrator = Full Control										- This folder Subfolders and files
+	System 		  = Full Control										- This folder Subfolders and files
+	Auth. Users	  = List Folder/Read Data, Create Folders/Append Data.	- This Folder only
+
+------------------------------------------------------
+2. Opret et nyt share på mappen: 
+
+- Sharenavn  = "FolderRedirect"
+- Sti		 = d:\FolderRedirect
+- ABE 		 = ON
+- Share-rettigheder: Everyone = F.C. 
+
+-----------------------------------------------------
+3. Opret GPO
+
+Navn = "Folder Redirect Documents"
+
+Path =  User Configuration > Policies > Windows Settings > Folder Redirect > Documents
+
+Link to: Domain
+
+Settings 
+	Setting: 					Basic - Redirect everyones's folder to the same location
+	Target folder location : 	Create a folder for each user under the root path
+	Root Path :  				\\dc1.xxx.local\FolderRedirect
+	
+	hvor xxx = dit domain-navn

@@ -1,0 +1,217 @@
+﻿Repetitionsopgave til elever, der starter på ServerTeknologi, ver  15-05-2023 - REP-A
+
+I Hyper-V manager
+Opret ny Virtuel Switch
+ i Hyper-V manager\Virtual Switch manager
+ nyt network (hvis det ikke findes)
+ Navn = Repet
+ Type = Private
+
+Opret Ny Virtuel maskine
+navn= DC1-H1
+Generation = 2
+RAM = 4096 MB   
+RAM = Dynamisk
+Disk = default
+Network = Repet
+DVD = Windows Server 2019 iso
+
+------------------------------------------
+Når maskinen er oprettet;
+Kør installationen med følgende indstillinger:
+
+lang = US , keyb = DK, Time = DK
+Type = Windows 2019 standard desktop experience
+Password = Passw0rd
+Computername = DC1  (MEGET VIGTIGT!!!:  "Computernavnet"  må ikke ændres, efter at ADDS-Rollen er installeret)
+IP = 10.0.1.10 /24, DNS = 10.0.1.10, Gateway = 10.0.1.254
+
+Add Role
+ Type = ADDS
+   Configuration:
+     new forest, dns name = H1.local, NETBIOS name = H1,   Recovery password = Passw0rd
+
+I ADDS
+ ny OU
+ Name = Firma
+ i Firma
+ opret  Global grupper:  G-Salg, G-Admi, G-Oko
+ opret  Domain local grupper:  ACL-Salg-M, ACL-Admi-M, ACL-Oko-M
+ opret  users:  Leia, Anakin og  Obi   -  Password = Passw0rd
+ Brug IGDLA reglerne for gruppe medlemskab
+
+Gruppe medlemskab:
+
+ G-salg = Leia, Anakin
+ G-admi = Leia
+ G-0oko  = Leia, Obi
+
+Resize
+ resize c: så det bliver ca.  50 % mindre.
+ I den frigivne plads laves en ny partition.
+ Formater partitionen.
+   Filsystem = NTFS
+   Blocksize = default.
+   Navn = Data
+   Drev navn = D:      ( flyt drev bokstavet fra DVD)
+
+På Drev D:
+ opret mappen d:\firma
+ NTFS sikkerhed på mappe firma
+ disable inherintence mellem D:\  og D:\firma (convert to explicit)
+ fjern "Creator Owner"
+ "Administrators" = Full   
+ "System" = Full
+ "authenticated users" har read & execute i D:\firma   
+  - sørg for at der er valgt (this folder only )  
+ 
+ opret undermapper
+
+ - D:\firma\admi
+ - D:\firma\salg
+ - D:\firma\oko
+ 
+ tilføj sikkerhed på de nye mapper
+ medlemmer af admi har modify i D:\firma\admi
+ medlemmer af salg har modify i D:\firma\salg
+ medlemmer af oko  har modify i D:\firma\oko
+ 
+Tilføj Share (brug Servermanager)
+ share mappen D:\firma
+ share navn = Firma
+ Share permissions:  everyone = FULL
+ Accessbased enumuration = TRUE
+
+I file explorer: MAP følgende drev
+ Map drevet S: =  \\DC1\firma\salg
+ Map drevet O: =  \\DC1\firma\oko
+ Map drevet T: =  \\DC1\firma\admi
+ Persistent=TRUE  (reconnect at logon)
+ 
+
+
+
+
+
+
+
+
+***********************************************************************************************
+************************************  Kontrol NTFS ********************************************
+***********************************************************************************************
+
+i en cmd skriv "icacls d:\firma /t"
+den bør retunere nedestående; ellers om igen
+
+
+C:\Windows\system32>icacls d:\firma /t
+d:\firma BUILTIN\Users:(RX)
+         BUILTIN\Administrators:(OI)(CI)(F)
+         NT AUTHORITY\SYSTEM:(OI)(CI)(F)
+
+d:\firma\admi ELEV\ACL-Admi-M:(OI)(CI)(M)
+              BUILTIN\Administrators:(I)(OI)(CI)(F)
+              NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+
+d:\firma\Oko ELEV\ACL-Oko-M:(OI)(CI)(M)
+             BUILTIN\Administrators:(I)(OI)(CI)(F)
+             NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+
+d:\firma\Salg ELEV\ACL-Salg-M:(OI)(CI)(M)
+              BUILTIN\Administrators:(I)(OI)(CI)(F)
+              NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+
+Successfully processed 4 files; Failed processing 0 files
+
+**********************************************************************************************
+************************************  Kontrol Leia *******************************************
+**********************************************************************************************
+
+C:\Windows\system32>net user Leia
+User name                    Leia
+Full Name
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            27-05-2020 12:21:09
+Password expires             08-07-2020 12:21:09
+Password changeable          28-05-2020 12:21:09
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   Never
+
+Logon hours allowed          All
+
+Local Group Memberships
+Global Group memberships     *G-Admi               *Domain Users
+                             *G-Oko                *G-Salg
+The command completed successfully.
+**********************************************************************************************
+************************************  Kontrol dl-oko *****************************************
+**********************************************************************************************
+C:\Windows\system32>net localgroup acl-oko-m
+Alias name     acl-oko-m
+Comment
+
+Members
+
+-------------------------------------------------------------------------------
+G-Oko
+The command completed successfully.
+
+**********************************************************************************************
+
+************************************  Kontrol g-oko  ********************************************
+C:\Windows\system32>net group g-oko
+Group name     G-Oko
+Comment
+
+Members
+
+-------------------------------------------------------------------------------
+Leia                   Obi
+The command completed successfully.
+
+
+**********************************************************************************************
+
+*********************************** Kontrol Share ********************************************
+
+C:\Windows\system32>net share firma
+Share name        firma
+Path              D:\firma
+Remark
+Maximum users     No limit
+Users
+Caching           Manual caching of documents
+Permission        Everyone, FULL
+
+The command completed successfully.
+
+**********************************************************************************************
+
+*********************************** Kontrol Drive Map ********************************************
+
+C:\Windows\system32>net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           O:        \\h1-dc1\firma\Oko      Microsoft Windows Network
+OK           S:        \\h1-dc1\firma\Salg     Microsoft Windows Network
+OK           T:        \\h1-dc1\firma\admi     Microsoft Windows Network
+The command completed successfully.
+
+**********************************************************************************************
+
+

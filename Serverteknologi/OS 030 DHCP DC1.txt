@@ -1,0 +1,19 @@
+Serverteknologi - Opgave 030 DHCP     ver. 15-05-2023
+
+Tilføj DHCP på DC1	(add roles and features)
+
+DHCP configuration:
+- nyt ip range 
+- navn Elev-01
+- range 172.16.0.1--172.16.0.254
+- length = 24
+ 
+ exclude 172.16.0.1 - 172.16.0.49
+ exclude 172.16.0.240 - 172.16.0.254
+
+ Preferred DNS 172.16.0.10
+ Alternate DNS 172.16.0.20
+ 	
+ Gateway 172.16.0.254
+
+-------------------------------

@@ -1,0 +1,33 @@
+Serverteknologi - Opgave 067  -    ver. 15-05-2023
+
+Beskrivelse: Formålet med opgaven er at sætte en skærmbaggrund, som kun rammer folk i sales.
+
+Søg på "dog under water" på google og gem et billede som "dogunderwater.jpg" på dc1 i mappen "Common (d:\firm\common)
+
+GPO'erne laves på DC1 i group policy management
+Sti/Metode: /Tools -> //Group policy management -> //tryk på dit domain -> //højre klik på domain-navnet -> //Create a GPO(...)
+
+I Group Policy-management opretter du de nedenstående gpo'er:
+
+1. GPO: "Create new folder" 
+ - Path: Computer Configuration -> Preferences -> Windows settings -> folders -> højre klik, tryk new folder
+ - Action: create
+      skriv path: c:\baggrund
+ - tryk på "common" og kryds af på "yes" ved "apply once and do not reapply" 
+
+2. GPO: "Add file to folder"
+ - Path: Computer Configuration -> Preferences -> Windows settings -> files ->  højre klik, tryk new file
+ - Action: Create
+       skriv source file: \\dc1\firm\common\dogunderwater.jpg
+       skriv destination file: c:\baggrund\dogunderwater.jpg
+ - tryk på "common" og kryds af på "yes" ved "apply once and do not reapply" 
+
+3. GPO: "Baggrund - Sales"
+ - Path: User Configuration -> Policies -> admin templates -> desktop -> desktop -> doubble klik desktop wallpaper 
+       Skriv wallpaper name: c:\baggrund\dogunderwater.jpg
+       vælg wallpaper style "fill"
+ - enable 
+
+Sørg for, at den kun anvendes på medlemmere i sales
+
+Test ved gå på klienten med en bruger fra sales og en bruger fra en anden afdeling.

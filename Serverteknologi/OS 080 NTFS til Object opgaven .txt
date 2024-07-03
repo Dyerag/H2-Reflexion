@@ -1,0 +1,81 @@
+Serverteknologi - Opgave 080   -   ver. 15-05-2023
+
+Beskrivelse: Fortsættelse af Opg 058/058a.
+
+ - Der skal oprettes mapper til brugerne fra Opg 110/110a.
+ - Check evt. med ADUC/ADAC, at de ER oprettet - OU, brugere og grupper.
+
+1. Opret d:\Firm   
+	Security på Firm:
+	- Authenticated Users = RX
+	- System = (F)(OI)CI)
+	- Administrators = (F)(OI)(CI)
+
+2. Under Firm oprettes en mappe til hver afdeling.
+    - til hver mappe oprettes to Domain local grupper
+       fx til afdelingen "Sales" oprettes mappen D:\Firm\sales.
+
+3. I OU "Firm" oprettes to Domain local grupper:
+	Name = ACL-Sales-M  - Description = D:\Firm\Sales
+	Name = ACL-Sales-RX - Description = D:\Firm\Sales
+
+4. I mappen d:\firm\sales gives retten M til Gruppen ACL-Sales-M
+	 samt retten R/X til Gruppen ACL-Sales-RX
+
+5.	Punkt 2-4 skal udføres for ALLE afdelinger
+
+
+6. Opret fælles mappen D:\Firm\Common 
+	Sæt rettighederne op, så alle brugere kan oprette deres egne filer/mapper med CREATER-OWNER rettighed på de oprettede filer/mapper,
+	men at de ikke kan slette/modify'e filer/mapper, oprettet af andre end dem selv.
+
+
+7.	Alle i Sales skal have Modify i d:\firm\sales.
+	Gør noget tilsvarende for alle afdelinger i Firm
+
+7.5	Alle i marketing skal have RX på Sales mappen
+	Alle i Development skal have RX på Research mappen
+
+
+8. Share mappen D:\Firm 
+	- via. Server Manager, med Share rights: Full control.
+	- ABE  Enabled
+ 
+
+9. Brug icacls til at dokumentere, at NTFS rettighederne er sat rigtigt:
+	Icacls d:\firm /t > D:\icacls.txt
+
+10. For den første bruger i 3 forskellige afdelinger: 
+	- gå ind en mappe, du har oprettet (ikke nødvendigvis deres egen afdelingsmappe)
+    	og se om "Effective Access" er opsat rigtigt.
+	- Tag et screenshot for hver bruger. gem på desktop på DC
+
+11. Læg screenshots og icacls-filen på skrivebordet af DC1. Så uploades de med det almindelige script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

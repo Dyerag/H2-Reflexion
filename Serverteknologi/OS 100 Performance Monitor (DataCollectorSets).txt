@@ -1,0 +1,28 @@
+﻿Serverteknologi - opgave 100  -    ver. 15-05-2023
+
+Beskrivelse: Opsæt Perf. Mon. til at give rapporter over tre forhold.
+
+--------------------------------------
+Maskine: DC1
+
+I Computer Management
+	Performance
+		Data Collector Sets
+			System
+				- Active Directory Diagnostics  (hclick & Start )
+				- System Diagnostics
+				- System Performance
+								
+				
+Se rapporterne i Computer Management				
+	Performance
+		Data Collector Sets
+			Reports
+				Active Directory Diagnostics
+				System Diagnostics
+				System Preformance
+				
+Gem Print Screen af de 3 rapporter på desktop
+				
+				
+				

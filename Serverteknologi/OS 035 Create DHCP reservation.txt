@@ -1,0 +1,6 @@
+Serverteknologi - Opgave 035   ver. 15-05-2023
+
+DHCP Reservation
+
+
+opret en reservation til CL1 = IP 172.16.0.48

@@ -1,0 +1,81 @@
+Serverteknologiopgave 015	ver. 15-05-2023
+
+Beskivelse: Tilføj en Core domain controller
+
+Husk: DC1 skal være tændt
+
+HUSK at bruge dit Domain navn istedet for xxxx
+
+
+Ny Hyper-v maskine
+- navn= xxx-DC2-Core
+- RAM = 1024 MB, Dynamisk
+- Disk = default
+- Network = Privat
+- DVD = 2019 iso 
+
+------------------------------------------
+
+Når maskinen er oprettet, kør installationen således:
+
+- lang = US , keyb = DK, Time = DK
+- Type = Windows server Standard core
+- Password = Passw0rd
+
+
+Brug SCONFIG til at configurere ip,dns,coomputernavn,domain 
+
+- Computername = DC2-core
+- IP = 172.16.0.20 /24, 
+- DNS = 172.16.0.10, 
+- Gateway = 172.16.0.254
+
+Join DC'en til dit domain
+
+--------------------------------------------------------------------------------------
+
+Når maskinen har joinet domain'et, logges ind på Dc1
+
+i servermanager tilføjes DC2-core til "All Servers" ( Dashboard / add other servers to manage )
+
+"Add role" kan nu vælges på dc2-core
+
+Add Role 
+  Type = ADDS
+    Configuration:
+      New dc in existing domain, 
+	  Recovery password = Passw0rd
+
+
+-------------------------------
+
+Opret et share på DC2   (brug servermanager på DC1)
+
+lav en mappe på dc2
+
+- sti = c:\files
+- NTFS security:  Authenticated users = read & execute 
+
+Share name = files-dc2
+ - Share rettigheder : Everyone = Full
+
+ABE = On
+
+Add OU, Name = "Star"
+
+Add Domain user R2D2
+
+Check Effective Access 
+   - user R2D2 på folderen 
+
+gem et billede af indstillingerne på dc1\desktop:  eff-r2d2.jpg
+
+
+HVis du vil se en video om "Effective Access" https://www.youtube.com/watch?v=3DS0N3eW0LE
+
+
+
+
+
+
+  

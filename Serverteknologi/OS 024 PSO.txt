@@ -1,0 +1,31 @@
+Serverteknologi - Opgave 024    ver 15-05-2023
+
+Beskrivelse: Opsæt Fine Grained Password Policy
+
+Password Settings Object 	(PSO)
+
+    i ou firma: opret ny Global gruppe: "Sec-firma"
+
+I programmet "Active Directory Administrativ Center"
+	søg efter password for at finde "Password settings container"
+
+opret et nyt object
+
+Password Settings Object 	(PSO)
+	Name ="Domain PSO",
+	Precendence = 10000
+	
+	Password Settings
+		minimum password length = 10
+		Enforce Password History = 20
+		Password must meet complexity requirements
+		Minimum password age = 1
+		Maximum Password age = 30
+		Enforce account lockut policy
+		Number of failed logon attempts = 3
+		Reset failed logon attempts count after = 30
+		Account will be locked out, until admin unlocks it
+	
+	Directly applies to 
+	  "Sec-firma"
+	

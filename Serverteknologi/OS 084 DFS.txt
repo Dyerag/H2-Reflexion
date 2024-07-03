@@ -1,0 +1,112 @@
+ Distributed File System   -  Opgave 084    -    ver.  15-05-2023
+
+
+Brug de tre DFS-servere fra opgave 082. Opsætning som andre servere (IP-adr., Domain Join etc.)
+
+BEMÆRK: Under "Review Settings" - HUSK at kopiere skærmbilledet over i en .txt-fil til DC1's desktop. 
+
+on DFS1 add role 
+	'File and Storage Services' \ 'File and iSCSI Services' \ DFS Namespaces
+	'File and Storage Services' \ 'File and iSCSI Services' \ DFS Replication
+
+on DC1,DFS2,DFS3 add ROLE
+	'File and Storage Services' \ 'File and iSCSI Services' \ DFS Replication
+
+
+On DFS1 start 'DFS Manager'
+
+"New NameSpace Wizard"  
+	Name Space Server = DFS1
+	Name Space Name = DFS
+	Namespace Type = Domain
+		Enable Server 2008 mode = on
+
+"New Replication Group Wizzard"
+	Replication Group Type = Multipurpose replication group
+	Name and Group	= Firm
+	Replication Group Members = DC1; DFS1; DFS2; DFS3
+	Topologi Selection = Full mesh
+	Replication Group Schedule and bandwith = Replicate continuously
+		Bandwith = Full
+	Primary member = DC1
+	Folders to Replicate = D:\Firm
+	Local Path of Firm on othermembers
+		DFS01 = D:\Firm	( edit:  Membership status = Enabled, Local Path = D:\Firm   (Browse and create folder )
+		DFS02 = D:\Firm	( edit:  Membership status = Enabled, Local Path = D:\Firm   (Browse and create folder )
+		DFS03 = D:\Firm	( edit:  Membership status = Enabled, Local Path = D:\Firm   (Browse and create folder )
+	
+	Review Settings - VIGTIGT		
+	
+		- Copy settings text to text file on desktop  DFS.txt
+	
+	
+
+
+Eksempel:
+
+______DFS.TXT.............
+
+
+Replication Group Name:
+	Firm
+
+Replication Group Description:
+	
+
+Domain of Replication Group:
+	Test.local
+
+Replication Group Members (4):
+	S-DC1
+	S-DFS1
+	S-DFS2
+	S-DFS3
+
+Topology type:
+	Full mesh
+
+List of connections (12):
+	S-DFS1 -> S-DC1
+	S-DC1 -> S-DFS1
+	S-DFS2 -> S-DC1
+	S-DC1 -> S-DFS2
+	S-DFS3 -> S-DC1
+	S-DC1 -> S-DFS3
+	S-DFS2 -> S-DFS1
+	S-DFS1 -> S-DFS2
+	S-DFS3 -> S-DFS1
+	S-DFS1 -> S-DFS3
+	S-DFS3 -> S-DFS2
+	S-DFS2 -> S-DFS3
+
+Default Connection Schedule:
+	Replicate continuously with Full bandwidth 
+
+Primary Member:
+	S-DC1
+
+Replicated Folder Name:
+	Firm
+
+Member: S-DC1
+	Path: D:\Firm
+	Status: Enabled
+
+Member: S-DFS1
+	Path: D:\Firm
+	Status: Enabled
+
+Member: S-DFS2
+	Path: D:\Firm
+	Status: Enabled
+
+Member: S-DFS3
+	Path: D:\Firm
+	Status: Enabled
+
+NTFS Permission: From primary
+
+
+		
+	
+	

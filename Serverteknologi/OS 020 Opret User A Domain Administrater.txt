@@ -1,0 +1,15 @@
+Serverteknologi - opgave 020   ver 15-05-2023
+
+Beskrivelse: Opret en admin-bruger, som er lettere at logge på, end "Administartor" . . . .
+
+I Active Directory 
+
+
+Find bruger "Administrator"
+
+Kopier ham og kald ham "a". Udfyld de nødvendige oplysninger og gem.
+
+Tjek, at han har beholdt sine gruppemedlemsskaber.
+
+
+Nu har du en user med et kortere navn

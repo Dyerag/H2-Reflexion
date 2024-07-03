@@ -1,0 +1,31 @@
+Snakke emner:
+
+
+1.NTFS/Share
+
+2.DNS
+
+3.DHCP
+
+4.GPO
+
+5.Encryption / audit / monitoring
+
+6.ADDS / DC
+
+7.GPO / PSO / ACL
+
+8.IGDLA
+
+9.DFS / FSRM
+
+10.ADDS / DC
+
+Forberedelse til 'snakken':
+
+Læs diverse teori, google og kig evt. på de slides som har været gennemgået(ligger på it's learning)
+Youtube videoer - søg f.eks. efter emne + itfreetraining - eller kig på dem på it's learning som ligger i H1 forløbet(her kan jeg dog ikke garantere at linke stadig er gældende)
+
+Skriv notater/stikord ned til hvert emne - de må gerne tages med ind
+
+

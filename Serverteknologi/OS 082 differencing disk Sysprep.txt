@@ -1,0 +1,137 @@
+﻿Serverteknologi -  Opgave 082  -   ver. 15-05-2023
+
+
+Beskrivelse : Lav en VM, der kan bruges som master til at lave nye virtuelle maskiner
+
+Erstat forkomster af Navnet XXX- med dit DomainNavn-
+
+
+Gå i Hyper-V manager
+
+Ny hyper-v maskine
+ - navn= "Sysprep-W2019-Stan-Eval"
+ - GEN = 2
+ - RAM = 2048 MB, Dynamisk
+ - Disk = default
+
+ - DVD = 2019 iso 
+
+------------------------------------------
+
+Når maskinen er oprettet, kør Windows-installationen
+
+ - lang = US , keyb = DK, Time = DK
+ - Type = Windows Standard Desktop
+ - Password = Passw0rd
+ 
+-----------------------------------------
+
+Hent alle updates fra windows update
+
+------------------------------------------
+
+kør sysprep.exe fra en eleveret kommandolinje:
+
+ - System Cleanup Action = OOBE
+ - Generalize = on
+
+ - Shutdown Options = Shutdown
+ 
+ Sysprep kan også findes i C:\Windows\Sysprep\ . . . .
+ 
+-------------------------------------------------------------------------------------
+
+Når VM er slukket:
+
+Fjern .vhdx-disken fra VM'en:
+ 
+Sysprep-W2019-Stan-Eval / Settings / Remove disk
+
+Sysprep-W2019-Stan-Eval.vhdx må    A L D R I G   startes mere, da den skal være Parent Disk.
+
+-----------------------------------------------------------------------
+
+I Hyper-V manager:
+
+Lav ny hardisk
+Type = differencing
+Name = XXX-DFS1.vhdx  - HUSK: erstat "XXX-" med dit domain navn.
+Parent = Sysprep-W2019-Stan-Eval
+
+---------------------------------------------------------------------------------
+
+I Hyper-V manager:
+
+Lav ny hardisk
+Type = differencing
+Name = XXX-DFS2.vhdx  -  HUSK: osv
+Parent = Sysprep-W2019-Stan-Eval
+
+----------------------------------------------------------------------------------
+
+I Hyper-V manager
+
+Lav ny hardisk
+Type = differencing
+Name = XXX-DFS3.vhdx   -  HUSK 
+Parent = Sysprep-W2019-Stan-Eval
+
+----------------------------------------------------------------------------------
+
+Lav ny Virual machine
+
+Name = XXX-DFS1
+Ram = 2048 Dynamisk
+Network = privat
+Harddisk = XXX-DFS1.vhdx
+
+-----------------------------------------------------------------------------------
+Lav ny Virual machine
+Name = XXX-DFS2
+Ram = 2048 Dynamisk
+Network = privat
+Harddisk = XXX-DFS2.vhdx
+-----------------------------------------------------------------------------------
+Lav ny Virual machine
+Name = XXX-DFS3
+Ram = 2048 Dynamisk
+Network = privat
+Harddisk = XXX-DFS3.vhdx
+-----------------------------------------------------------------------------------
+Start de tre nye VM'er
+
+konfigurer ComputerName: DFS01, DFS02 og DFS03
+
+Giv maskinerne en fast IP
+
+og meld in i Domain
+
+Shrink volume C:  ca 50 %
+
+opret ny volume D: 
+  navn = Data
+
+
+
+
+
+Opret 3 Klienter på samme måde
+Opret 3 Core på samme måde
+- begge dog uden shrink volume.
+
+Find på navne der passer  ind
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

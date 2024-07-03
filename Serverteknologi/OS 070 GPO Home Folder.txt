@@ -1,0 +1,43 @@
+﻿Serverteknologi - opgave 070    -   ver. 15-05-2023
+
+Beskrivelse: Tilknyt home-folder til brugerne v.hj.a. GPO
+
+1. Opret en ny Mappe På DC1: "D:\Home"
+
+NTFS Security på Mappen D:\home
+
+	Creator Owner = Full Control	- Subfolders and Files only
+	Administrator = Full Control	- this folder Subfolders and files
+	System 		  = Full Control	- this folder Subfolders and files
+	Users		  = List Folder/Read Data, Create Folders/Append Data.   - this Folder only
+
+ICACLS på D:\Home:
+	D:\Home BUILTIN\Administrators:(OI)(CI)(F)
+        	NT AUTHORITY\SYSTEM:(OI)(CI)(F)
+	        CREATOR OWNER:(OI)(CI)(IO)(F)
+        	Authenticated Users:(S,RD,AD)
+
+------------------------------------------------------
+2. Opret nyt Share på mappen 
+
+- Share Navn = "Home"
+- Share Path: "d:\home"
+- ABE = ON
+
+Share rettigheder: Everyone = F.C.
+
+
+-----------------------------------------------------
+3. Opret GPO
+
+Navn = "Home Folder"
+
+Path = Computer Configuration > Policies > Administrative Templates > System > User Profiles > Set user home folder
+
+Link to: Domain
+
+Settings 
+	Enabled: yes
+	Location: On the network
+	Path = \\dc1.XXX.local\home   -   XXX erstattes med navnet på dit domain
+	Drive letter = H:

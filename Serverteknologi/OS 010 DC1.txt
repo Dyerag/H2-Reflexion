@@ -1,0 +1,56 @@
+﻿Serverteknologiopgave 010   ver 15-05-2023
+
+Kig i "OS2 020b Navn til dit Domain.txt" for at finde navnet til Dit Domain - skal passe til maskinenr.
+
+
+Beskrivelse af opgave: Opret en Domain Controller med dit tildelte navn.
+
+fortag en søg/erstat (ctrl-h) i dette dokument, så xxx bliver erstattet med den tre-bogstavskombination = dit Domain-navn.
+ 
+
+*****Husk at gemme****
+
+
+Dit domain-navn = xxx.local   ;  NETBIOS = xxx
+
+FQDN for dc1.xxx.local            FQDN = fully qualified domain name)
+
+Opret ny Virtuel Switch
+Navn = Privat
+Type = private
+
+Ny Virtuel maskine
+navn= DitDomainNavn-DC1
+Generation = 2
+RAM = 4096 MB   
+RAM = Dynamisk
+Disk = default
+Network = Privat
+DVD = Win 2019 iso
+
+------------------------------------------
+Når maskinen er oprettet:
+
+- Kør installationen med følgende indstillinger:
+
+	- lang = US , keyb = DK, Time = DK
+	- Type = windows 2019 standard desktop experience
+	- Password = Passw0rd
+	- Computername = DC1     (MEGET VIGTIGT!!! "Computer-navnet" må ikke ændres, efter at ADDS-rollen er installeret)
+	- IPv4 = 172.16.0.10 /24, DNS = 172.16.0.10, Gateway = 172.16.0.254
+	- IPv6 = FE80::1,	Subnet Prefix 32, DNS = ::1
+
+Add Role
+ Type = ADDS
+   Configuration:
+     new forest, dns name = xxx.local , NETBIOS name = xxx,   Recovery password = Passw0rd
+
+
+Resize c:, så det bliver ca. 80 GB mindre.
+
+I den frigivne plads laves en ny partition.
+   - Filsystem = NTFS
+   - Blocksize = default.
+   - Navn = Data
+   - Drev navn = D:      (flyt drevbogstavet fra DVD)
+

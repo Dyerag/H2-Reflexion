@@ -1,0 +1,78 @@
+Serverteknologi - opgave 076   -   ver. 15-05-2023
+
+Beskrivelse: Etabler en printserver i domain'et og opsæt administration
+
+
+Add Role: "Print Server and Feature"
+
+Download HP 4100 Driver  ( upd-pcl6-x64-7.0.0.24832.exe ) 
+
+
+Install Driver:
+
+Install HP 4100 driver on dc1  
+Installation type = standard
+Use IP =  172.16.0.253
+
+Device type = TCP / IP Device
+Hostname or IP = 172.16.0.253
+Portname = 172.16.0.253
+
+(Da der ikke findes en fysisk printer, er det ok, at installationen ikke kan finde den)
+
+Device type = Standard   
+	Hewlet Packet Jet Direct
+
+
+Chose Printer from list = HP Universal Printing PCL6
+
+Printer NAME = HP Universal Printing PCL 6
+
+Share This Printer = HP Universal Printing PCL 6
+
+
+_____________________________________ New GPO ___________________________________
+
+Create new Empty GPO
+
+
+Name = "Printer HP4100 add"
+Link = Domain
+
+_________________________________________________________________________________
+
+
+Add Printmanagement in Tools.mmc
+
+In Print Management 
+
+	Print Servers:  DC1  
+	Printers:  HP Universal Printing PCL 6
+		List in Directory
+		Deploy with Group Policy
+			GPO = 	"Printer HP4100 add"
+			The Computers that this GPO applies to (per machine) = True
+
+
+-------------------------------------------------------------------------------------
+
+I OU = FIRM
+
+New Global group 
+	 Name = Firm-PrinterAdmi
+	 Descrition = users in this group can fix the printer
+
+
+Tilføj brugeren Aldis til denne gruppe
+
+
+------------------------------------------------------------------------------------
+   
+I Print Management 
+
+	Print Servers: DC1 
+	Printers:  HP Universal Printing PCL 6 
+	vælg properties / security / Advanced security 
+		Add "Firm-PrinterAdmi"  - Manage documents
+
+

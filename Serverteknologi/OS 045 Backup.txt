@@ -1,0 +1,97 @@
+﻿Serverteknologi - opgave  045   ver 15-05-2023
+
+Create a backup of DC1 to a new disk and then build a new computer. Move the new disk to the new computer to test the backup
+
+Part One
+
+On DC1.xxx.locel   ( change xxx-name to reflect your domain)
+
+In hyper-v settings for dc1
+  SCSI Controller
+    Hard Drive
+      Add
+        New   ( Starts "New Virtual Harddisk Wizzard" )
+	  Disk Type = Dynamically expanding
+          Name:  Backup.vhdx
+          Location: C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\
+          New blank disk, Size: 127 GB
+          
+       
+On DC1 start "Disk Manager"
+  Initialize  disk, 
+    partition Style = GPT
+  New Simple Volume
+    Size = 127 GB
+    Drive Letter = Y:
+    File system = NTFS
+    Allocation unit size = Default
+    Volume label = Backup
+    Quick format = True
+    
+In "Server Manager" add feature  "Windows Server backup"
+
+Use ""Windows Server backup"  to create a full backup of DC1 to drive Y:
+  - Windows Server Backup / Local Backup / Backup Once / Different options / Full Server / Local drives Backup Dest = Y:
+  After the Backup compleats
+  - In "Disk Manager" take the  "backup disk" offline
+
+In Hyper-V settings for DC1
+  SCSI Controller
+    Select the Backup Disk
+      Click Remove
+
+   
+You should now have a backup.vhdx with a full backup of DC1
+
+End of part one
+----------------------------------------------------------------------------
+
+Part Two
+
+Testing the Backup
+
+You create a new VM to test the backup
+
+In Hyper-V manager 
+
+New hyper-v Virtual machine
+- name= Restor-Test
+- Generation = 2
+- RAM = 4096 MB, Dynamic
+- Disk = default
+- Network = Private99 (If it dosent exist create a private network switch )
+- DVD = "Windows Server 2019"  ISO 
+
+Nej Start ikke maskinen endnu
+
+------------------------------------------
+
+I Hyper-v settings for Restor-test: 
+add disk
+- SCSI Controller
+   Harddrive
+    Add
+      Browse...
+        File Name: Backup.vhdx    (the disk from part one)
+        Location = C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\
+  
+-----------------------------
+
+Start "Windows 2019 Server" Installation
+- lang = US , keyb = DK, Time = DK
+- On the  "Install Windows" Screen : 
+  - Select "Repair your computer"
+     Troubleshoot
+      System Image Recovery
+        use latest available system image
+          Format and reperation disks
+            All disks to be restored will be....... = yes
+
+
+
+Wait a long time . . .       
+
+
+job done :-) .. . . .   . .  . .  hopefully
+
+

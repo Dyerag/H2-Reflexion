@@ -1,0 +1,39 @@
+Serverteknologi - Opgave 063   -  Ver.  15-05-2023
+
+Beskrivelse: Opret 4 GPO'er, hvor du følger path-beskrivelsen nedenfor. 
+
+GPO'erne laves på Server manager.
+  Metode: //Tools -> //Group policy management -> //tryk på dit domain -> //højre klik på domain-navnet -> //Create a GPO(...)
+
+1. Disable WLMS - Navngiv GPO'en "Disable WLMS"
+   Path: Computer Configuration -> Policies ->  Windows Settings ->  Security Settings ->  System Services ->  
+      (find og dobbelklik på:) Windows licensing Monitor Services  - Sæt WLMS til disable..
+
+Færdig...
+
+
+2. Enable Windows Update - Navngiv: "Enable Windows Update"
+   Path: Computer Configuration -> Policies ->  Administrative templates ->  Policy definitions ->  Windows components ->  
+      dobbeltklik Windows Update -> Vælg Policy: (dobbeltklik) Configure automatic updates  - Enabled - vælg punkt 4..
+
+Færdig...
+
+
+3. Meld "Domain users" ind i local group "Remote Desktop users" Navngiv GPO'en "Domain users". 
+   Path: Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Restricted Groups -> 
+      Tilføj Remote Desktop og tilføj Domain Users som member
+
+--- Højre klik (Add group) 
+---- Browse: Søg efter "Remote desktop users" og tilføj 
+----- Tilføj Domain Users som Member 
+
+Færdig...
+
+
+
+4. Enable delivery optimization (Navngiv GPO'en "Enable Delivery optimization") 
+   Path: Computer Configuration -> policies -> admin templates -> windows components -> delivery optimization -> 
+     vælg og tryk på: "download mode" --- Enable ---- Vælg: 1. LAN  
+
+Færdig... 
+

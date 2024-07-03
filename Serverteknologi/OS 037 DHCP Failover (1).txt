@@ -1,0 +1,15 @@
+Serverteknologi - Opgave 037 -  ver 15-05-2023
+
+Beskrivelse: Opret Fail over clustering for DHCP
+
+
+Denne opgave forudsætter DHCP på DC1
+
+Add Role DHCP på DC2
+Authorize DHCP på DC2
+i DHCP manager på DC1 IPv4 højreclick.  [Configure Failover]
+
+Shared Secret = Passw0rd
+
+
+

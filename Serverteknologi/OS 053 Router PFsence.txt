@@ -1,0 +1,60 @@
+﻿Serverteknologi - opgave 053    ver. 15-05-2023
+
+Beskrivelse: Opsæt en router, så netværket kan få forbindelse til omverdenen.
+
+PFsence er en super simple Router bygget på Linux Debian
+
+Efter installationen af PFsence vil dine VM'er (Virtuelle Maskiner) kunne tilgå Internettet.
+
+-------------------------------------
+
+Hent PFsence ISO på det sædvanlige share
+
+I Hyper-V: Opret en ny VM:
+
+- Navn = router1
+- RAM 2048, Dyn
+- Generation = 1
+- OS = PFsence ISO
+
+Før du starter din VM: 
+- tilføj et nyt NIC
+
+NIC1 = external (connect til external switch i Hyper-V - hvis der ikke er en, så opret)
+NIC2 = Privat (den velkendte)
+
+I Hyper-V manager kan man i bunden se  [ Summery / memory / network / Replication ] info for den virtuelle maskine. Vælg network,
+så kan du følge med i hvad MAC og IP dine netkort har (vigtigt for at sikre de rigtige forbindelser.
+
+
+Keyb = us
+
+Når VM siger, at den kan reboote:
+	- Shutdown
+	- eject CD
+	- turn on
+
+VLAN = no
+
+WAN  = External NIC
+LAN  = Privat NIC
+
+Vent en rum tid til PFsence starter
+
+IP LAN = 172.16.0.254
+ipv6 = no
+DHCP = no
+Revert to http = y
+
+
+På Routeren 
+	- test at du kan sende ping til 1.1.1.1
+
+
+På DC1 
+	test at du kan sende ping til google.dk
+
+
+
+
+

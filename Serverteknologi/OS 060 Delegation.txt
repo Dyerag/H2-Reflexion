@@ -1,0 +1,21 @@
+﻿Serverteknologi - Opgave 060   ver. 15-05-2023
+
+Beskrivelse: Sæt en bruger i stand til at udføre en udvalgt AD-opgave på visse brugere.
+
+
+I OU'en "Firm":
+  Opret en ny Global Sikkerheds gruppe -  Navn = "GRP-Admi-Sales"
+
+På OU "Sales":  Delegate control to "Grp-Admi-Sales" for funktion: "Reset Password".
+	
+Meld den første person i OU: "Sales" in i gruppen "Grp-Admi-Sales".
+
+
+opret en MMC med snap-in for AD. Den skal kun vise OU "Sales"  (Hclick på sales og vælg: "new window from here").
+   -  Console Mode : User mode - limted access single window
+   -  Save as: Password-reset-sales.msc
+
+Gem MSC'en på desktop på DC1 og i Sales-mappen.
+
+Log på som Grp-Admi-Sales brugeren og test, at der kan ændres password på en anden bruger i sales.
+   Test også, at brugeren ikke kan udføre opgaven på brugere fra andre afdelinger.

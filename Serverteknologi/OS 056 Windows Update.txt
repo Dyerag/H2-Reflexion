@@ -1,0 +1,11 @@
+﻿Serverteknologi - opgave 056   ver 15-05-2023
+
+Kør windows Update på alle maskiner
+
+	DC1
+	DC2	(brug Sconfig)
+	Cl1
+	
+	Det kan ta' LAAAAAAANG tid . . . .
+	
+	Ta'r det for LAAAAAAAANG tid, så hop uden om routeren. Det kan hjælpe lidt.

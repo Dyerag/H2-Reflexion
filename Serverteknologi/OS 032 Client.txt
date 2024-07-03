@@ -1,0 +1,63 @@
+Serverteknologi Opgave 032   ver. 15-05-2023
+ 
+Beskrivelse: Opret Windows 10 Klientmaskine
+
+Lav en ny Hyper-v maskine
+- navn = Cl1
+- Generation = 2
+- RAM = 4096 MB, Dynamisk
+- Disk = default
+- Network = Privat
+- ISO = Windows 10 Enterprise   
+- Number of virtual processors = 4
+
+------------------------------------------
+
+Når maskinen er oprettet, kør installationen således:
+
+- lang = US , keyb = DK, Time = DK
+- region = Denmark
+- keyboard = Danish
+- no second keyboard
+- network = I don't have internet
+- There's more to discover when you connect to the internet = continue with limited setup
+- Lets connect you to a network = I don't have Internet
+- There's more to discover when you connect to the internet = continue with limited setup
+- Who's going to use this PC = bob
+- Password = Passw0rd
+- security question 1 : pet name = dog
+- security question 2 : born = cph
+- security question 1 : nickname = bob
+- activity history = no
+- Do more with your voice = Don't use
+no
+no
+no
+no
+no
+no   . . . til resten af punkterne.
+
+
+
+Computername = Cl1
+IP = DHCP
+
+Når maskinen er startet med det nye navn:
+ - meld maskinen ind i domain'et - brug:  sysdm.cpl
+
+-------------------------------------------------
+
+RSAT "Remote Server Administration Tools" muligør fjernstyring af sine servere fra en klient.
+
+Hent RSAT fra Microsoft  "WindowsTH-RSAT_WS2016-x64.msu"
+
+log på CL1 som Domain Administrator
+
+installer RSAT på Cl1
+
+
+På Cl1 start "Activ directory users and Computeres"
+
+Opret OU: "SortHest"
+
+i Sort Hest, tilføj en ny bruger "Tom1" 

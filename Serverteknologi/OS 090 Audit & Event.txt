@@ -1,0 +1,37 @@
+Serverteknologi -  opgave 090   ver. 15-05-2023 
+
+Beskrivelse: Opsæt overvågning og tjek i Event-loggen.
+
+
+Gå til File Explorer: 
+	vælg folder "d:\firm"   
+	Properties / Security / Advanced / Auditing
+		Principal: 	Domain Users
+		Type:		Success
+		Applies to:	This folder, subfolders and files
+		
+		Basic permissions:
+			Read & execute
+			List folder contents
+			Read
+
+-----------------------------------------------------------------
+
+Start GPMC:
+	new GPO
+	 - Name:	"Audit Object On" 
+	 - link to:	Domain
+	 - Path:	Computer Configuration / Policies / Windows Settings / Security Settings / Local Policies/
+				  Audit Policy / Audit Object access
+	 - Setting:	All	
+
+-----------------------------------------------------------------
+
+Gå  til Event Viewer
+
+	New Custom View	
+	-	Event Log:		Security
+	-	Event ID:		4663
+	-	Name:			Audit Object		
+	
+Prøv at tilgå mappen fra Cl1 med forskellige brugere. Se resultatet her i Event Viewer.

@@ -1,0 +1,56 @@
+Serverteknologi - opgave 058    ver. 15-05-2023
+
+Beskrivelse: Importer users, globale grupper og OU'er ved at køre et script; se opg 058a. 
+
+Scriptet 
+	opretter en OU med 5 under-OU'er,
+	opretter en masse users i de fem OU'er,
+	opretter en global gruppe i hver under-OU, hvor users bliver medlem.
+
+
+
+Tilføj OU'er, users og grupper
+
+Download Objects02.zip fra Opgave 058a
+
+
+Lav en kopi til skrivebordet på din DC1   (husk enhanched session mode)
+
+Pak filerne ud i en ny mappe.
+
+Du burde nu have:  
+
+	1 .cmd-fil: import.cmd  (selve den aktive fil)
+
+	3 .txt-filer, der indeholder 
+		source-usr.txt	256 stk users
+		source-ou.txt	6 stk OU'er
+		source-grp.txt	5 stk globale groups
+
+
+De tre .txt-filer indeholder de objekter, du skal importere til dit domain.
+
+Du skal dog lige erstatte domain-navnet i filerne, så det passer med dit domain.
+
+Først skal du finde dit domain navn i LDAP-formatet
+	- den nemmeste måde er at åbne en "powershell prompt"   (WIN) + X    a 
+		og skrive "dsquery OU -name *"
+
+Brug notepad til at rette LDAP-navnet i de tre textfiler, så de passer med dit Domain navn
+  - ex Erstat "dc=TEST,dc=LOCAL" med "dc=oli,dc=local"
+
+Brug igen notepad til at rette i source-usr: 
+  RET "@adatum.com"   til "@dit_domain.local" -  f.eks. "@oli.local"
+
+
+Kør .cmd filen for at oprette OU'er, users og grupper.
+
+
+TIP
+
+  hvis importen fejler  
+		- åben "Activ Directory Users and Computers"
+		- slet OU "Firm" med alt indhold
+		- Ret .txt-filerne og prøv igen
+  
+

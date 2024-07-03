@@ -1,0 +1,60 @@
+﻿
+Repetitionsopgave: IGDLA, NTFS og SHARE    ver. 15-05-2023 - REP-B
+
+I grupper af max. 3 elever: 
+
+Lav en tegning - i DrawIO el.lign. eller på papir - af nedenstående:
+
+(Når tegningen er godkendt af læreren, udføres den i praxis på hver jeres Domain Controller (H1-DC1))
+
+
+Vi har: 
+
+- 125 elever	elev[101..225] (bemærk navne og numre)
+- 5 klasser	klasse[1..5]
+- 5 fag		SQL,MS,Linux,Bash,PS
+- 5 lærere	Ina,Ida,Ada,Eva,Oda
+
+Opret en mappe:	d:\skole.
+
+Under denne mappe skal der oprettes 10 mapper:
+ - en mappe til hvert fag 
+ - en mappe til hver klasse  
+
+Til hver af disse mapper skal der oprettes 2 Domain Local-grupper
+ - en gruppe med Read/Execute retigheder
+ - en gruppe med Modify-retigheder.
+Navnet på gruppene skal starte med ACL og slutter med den rettighed der gives til gruppen
+		EX.  ACL-SQL-M   ACL-Klasse1-M
+
+I Active Directory
+	opret en OU med navn "Skole"
+	under denne OU skal alle objekter til skoleopgaven placeres. I bestemmer selv OU-strukturen i øvrigt.
+
+
+Opret en user til hver person  -  se nederst for kommandoer
+ - fordel eleverne i klasserne
+
+Opret passende Globale grupper, så personerne får følgende retigheder:   - se kommandoer nederst i opgaven
+ - hver lærer har "modify" for en klasse mapper og to fag.
+ - elever får "R/X" i fagmapperne og "M" i klassemappen
+	
+Share skolemappen
+		
+Der skal bruges IGDLA
+
+
+		
+TIP:
+	Users og groups kan oprettes enkeltvis eller bulk i en commandoprompt med disse kommandoer:
+
+	- net user bob /add   (opret bruger)
+	- for /l %a in (1,1,10) DO Net user usr%a Passw0rd /add    (opret et antal brugere med navn "usr1 - usr10")
+
+	- net group  GlobalGroup /add     (opret en global gruppe)
+	- net localgroup  DomainLocal /add  (opret en domain local gruppe)
+
+	OBS objecter oprettet på denne måde havner i mappen "Builtin\Users"; husk at flytte dem til respektive OU'er.
+
+
+	

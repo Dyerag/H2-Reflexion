@@ -1,0 +1,27 @@
+Domain names til ST-opgave 010   ver 15-05-2023
+
+Hvis Din Computer hedder (hvor yyy = lokalenr) 
+
+Computernavn  Dit Domain-navn  Dit NETBIOS-NAVN
+Eyyy-01		asa.local	    asa
+Eyyy-02		bna.local           bna
+Eyyy-03		csa.local           csa
+Eyyy-04		dea.local           dea
+Eyyy-05		eda.local           eda
+Eyyy-06		fna.local           fna
+Eyyy-07		gsa.local           gsa
+Eyyy-08		hsa.local           hsa
+Eyyy-09		ida.local           ida
+Eyyy-10		jma.local           jma
+Eyyy-11		ksa.local           ksa
+Eyyy-12		lba.local           lba
+Eyyy-13		moa.local           moa
+Eyyy-14		nda.local           nda
+Eyyy-15		osa.local           osa
+Eyyy-16		pea.local           pea
+Eyyy-17		qsa.local           qsa
+Eyyy-18		rsa.local           rsa
+Eyyy-19		ssa.local           ssa
+Eyyy-20		tsa.local           tsa
+Eyyy-21		usa.local           usa
+Eyyy-22		vsa.local           vsa

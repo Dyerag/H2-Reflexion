@@ -1,0 +1,31 @@
+Serverteknologi - Opgave 088   ver. 15-05-2023
+
+Beskrivelse: Tilføj rollen File Server Ressource Management (FSRM) til administration af mapper i D:\firm
+
+
+Tilføj Quota på de mapper, der blev oprettet på D: til Firm-brugerne
+
+Development max 100 GB Soft
+IT          max  80 GB soft
+Managers    Max  40 GB Soft
+Marketing   max 110 GB soft
+Research    max  40 GB soft
+Sales       max  40 GB soft
+
+
+Opret File Screen filter på mappen "Firm" og undermapper 
+  - Filter =  Block Audio and video 
+    -  excptions: sales allowed 
+
+
+Brug Fsutil.exe til at oprette 10 filer på ca 123 MB i Sales mappen. 
+   de skal hedde "bigfile01.big" - "bigfile10.big"  
+   (brug kommandoen: FSUTIL.EXE file createnew)
+
+Generer en File Report på store files, større end 100 MB. Gem på desktop af DC1
+
+
+  
+
+
+

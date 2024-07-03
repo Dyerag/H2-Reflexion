@@ -1,0 +1,28 @@
+﻿Serverteknologi - opgave 040   ver 15-05-2023
+
+Det er en god ide at den DC med FSMO: "PDC Emulator Master" henter tiden fra internettet. Det er typisk DC1.
+
+
+To configure time synchronization via command line, on the PDC emulator open elevated Command Prompt 
+and use the following commands:
+
+w32tm.exe /config /syncfromflags:manual /manualpeerlist:131.107.13.100,0x8 /reliable:yes /update
+
+w32tm.exe /config /update
+
+*****
+
+Note:**The IP address in the example is a National Institute of Standards and Technology (NIST) 
+  time server at Microsoft in Redmond, Washington. Replace this IP address with the time service of your choice.
+
+
+
+How To Troubleshoot
+
+To see current configuration of the Windows Time service, use the following command in an elevated command prompt:
+
+w32tm /query /configuration
+
+to see the current source for time synchronization use the following command:
+
+w32tm /query /source

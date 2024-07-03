@@ -1,0 +1,59 @@
+Replication Group Name:
+	Firm
+
+Replication Group Description:
+	
+
+Domain of Replication Group:
+	csa.local
+
+Replication Group Members (4):
+	DC1
+	DFS01
+	DFS02
+	DFS03
+
+Topology type:
+	Full mesh
+
+List of connections (12):
+	DFS01 -> DC1
+	DC1 -> DFS01
+	DFS02 -> DC1
+	DC1 -> DFS02
+	DFS03 -> DC1
+	DC1 -> DFS03
+	DFS02 -> DFS01
+	DFS01 -> DFS02
+	DFS03 -> DFS01
+	DFS01 -> DFS03
+	DFS03 -> DFS02
+	DFS02 -> DFS03
+
+Default Connection Schedule:
+	Replicate continuously with Full bandwidth 
+
+Primary Member:
+	DC1
+
+Replicated Folder Name:
+	Firm
+
+Member: DC1
+	Path: D:\Firm
+	Status: Enabled
+
+Member: DFS01
+	Path: D:\Firm
+	Status: Enabled
+
+Member: DFS02
+	Path: D:\Firm
+	Status: Enabled
+
+Member: DFS03
+	Path: D:\Firm
+	Status: Enabled
+
+NTFS Permission: From primary
+

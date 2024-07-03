@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "noget shit 111111",
+    "body": "Mere shit 111111"
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "noget shit 222222",
+    "body": "Mere shit 222222"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "noget shit 3333333",
+    "body": "Mere shit 33333"
+  }
+]

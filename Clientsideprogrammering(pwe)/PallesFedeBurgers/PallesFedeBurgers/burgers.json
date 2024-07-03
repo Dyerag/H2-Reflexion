@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "BigMac",
+    "price" : 55,
+    "body": "Nice and tasty"
+  },
+  {
+    "id": 2,
+    "title": "Cheese Burger",
+    "price" : 155,
+    "body": "Makes you fat, too"
+  },
+  {
+    "id": 3,
+    "title": "McChicken",
+    "price" : 89,
+    "body": "Diet Burger"
+  },
+  {
+    "id": 4,
+    "title": "Quarter Pounder",
+    "price" : 89,
+    "body": "Niiiiice :)"
+  }
+
+]

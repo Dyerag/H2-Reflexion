@@ -1,0 +1,10 @@
+På din client: 
+
+opret ny folder på D:  -  kald folder fornavn på den user som er logget på
+
+opret et tekst dokument i folderen
+
+EFS krypter folderen (use google)
+
+tjek at dokumentet ikke kan tilgås fra en anden bruger
+

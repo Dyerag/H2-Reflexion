@@ -1,0 +1,27 @@
+Serverteknologi  ekstraopgave 800   ver. 06-07-2022
+
+Opret en DC3:
+
+Windows 2019 GUI
+
+ - indstillinger, ip, computernavn, osv finder du selv på.
+
+Opret den som RODC (Read Only Domain Controller) i dit Domain.
+
+-------------------------------------
+
+Opret en DC4:
+
+Windows 2019 CORE (CLI)
+
+ - indstillinger, ip, computernavn, osv finder du selv på
+
+Opret den som RODC i dit Domain
+
+
+
+
+
+
+
+

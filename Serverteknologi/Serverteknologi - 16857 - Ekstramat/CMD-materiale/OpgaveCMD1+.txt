@@ -1,0 +1,22 @@
+Start en virtuel pc - gå i kommandoprompten (husk: administrator-kørsel)
+
+Stil dig i roden af C:-drevet.
+
+opret en text-fil der hedder Text - den skal indeholde "Dette er en Text"
+
+opret en batch-fil ved navn Ejnar vhja Edit
+
+Sørg for at den ikke skriver alting på skærmen.
+
+få den til at oprette en folder ved navn Skryp og en ved navn Klarf
+
+I Klarf, opret en mappe, der hedder Slarv.
+
+Opret Spald.txt i Slarv, med indholdet fra Text.txt 
+
+kopier Spald.txt fra Slarv til Skryp
+
+flyt Spald til Klarf - fjern Slarv.
+
+Omdøb Spald i Klarf til Durl
+

@@ -1,0 +1,21 @@
+Command line øvelser
+
+Ny bruger:
+net user bruger-id password /fullname:"fuldt /comment:"beskrivelse" /active:no /add
+
+Ny gruppe:
+net user localgroup gruppenavn /comment:"beskrivelse" /add
+
+Tilføj bruger til gruppe:
+net user localgroup "gruppenavn" "bruger-id" /add  ...   HUSK anførselstegn!!
+
+Slet bruger:
+net user bruger-id /delete
+
+Slet gruppe:
+net localgroup gruppenavn /delete
+
+Mappenavigering:
+md (mkdir) - rmdir - cd (chdir): cd .. = 1 niveau op  -  cd\ = til root-dir  -  cd mappenavn  -  brug <tab> til autoudfyld af lange mappenavne
+
+ 

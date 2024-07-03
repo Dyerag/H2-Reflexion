@@ -1,0 +1,32 @@
+Serverteknologi   ekstraopgave 900   ver.  06-07-2022
+
+Skriv to scripts, der ud fra et NAVN opretter:
+
+1	Globalgruppe	"NAVN"				net group Navn /add
+2	Domain Local	"ACL-NAVN-M
+3	Domain Local	"ACL-Navn-RX		(net localgroup ACL-Navn-RX /add
+4	User			"USR-NAVN"			(net user  bob Passw0rd /add
+5	Mappe			D:\Script-Firm\"NAVN"
+6	Share Mappen Script-Firm
+ 
+Security på mappen D:\Script-Firm
+	1	disable inherintance
+	2	remove security for USERS
+	3	remove security CREATOR OWNER
+	4	grant RX to users \script-firm (This folder only)
+				
+
+Security på mappen D:\Script-Firm\"NAVN"
+	1	ACL-NAVN-M	= (OI)(CI)M
+	2	ACL-Navn-RX	= (OI)(CI)RX
+				
+
+Ændre Gruppemedlemskab
+
+1	USR-NAVN member of Navn          net group Name USR-NAVN /add
+2	Navn member of ACL-NAVN-M	 net LOCALgroup ACL-NAVN-M Name /add
+
+[G]  ss64 icacls
+
+
+

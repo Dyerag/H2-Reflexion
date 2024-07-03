@@ -1,0 +1,33 @@
+Opret en ny Computer med GUI
+
+
+
+navn IIS01
+
+passende IP
+
+Inst IIS
+
+Ret Hjemmesiden så den har dit DNS navn som logo
+
+
+
+Hvis du stadig keder dig
+
+
+
+
+Opret en ny Computer med CLI
+
+
+
+navn IIS02
+
+passende IP
+
+Inst IIS
+
+Ret Hjemmesiden så den har dit DNS navn som logo
+
+
+

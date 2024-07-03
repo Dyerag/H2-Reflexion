@@ -1,0 +1,20 @@
+﻿OS 830 FSMO og Replikering
+
+
+Brug google som hjælp......................
+
+Find ud af hvilke(n) server(e) som holder Flexible Single Master Operator rollerne
+
+Opret en fsmo.txt på Dc1 skrivebord og læg resultatet ind der(både command og output fra denne)
+
+Hvordan vi du tvinge en replikering af DC'erene igennem?
+Skriv commando + parametre i fsmo.txt. (husk at afprøve på din DC'er)
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,12 @@
+Check hvilken servere som holder FSMO rollerne
+
+'netdom query fsmo' i command line 
+
+-------------------------------------
+transfer RID-master role til din dc2 med command line tool'et ntdsutl
+Brug google til hjælp 
+
+check til sidst om den er transfer'ed med
+
+'netdom query fsmo' i command line 
+

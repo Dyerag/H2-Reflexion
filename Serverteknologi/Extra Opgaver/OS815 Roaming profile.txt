@@ -1,0 +1,14 @@
+Serverteknologi - opgave 815  -   ver. 03-10-2023
+
+Beskrivelse: Opsæt roaming profile på Aaron
+Læs og brug URL'en nedenunder
+
+https://learn.microsoft.com/en-us/windows-server/storage/folder-redirection/deploy-roaming-user-profiles#step-3-create-a-file-share-for-roaming-user-profiles
+
+Log Aaron på en client og tilføj en fil til skrivebordet og log af igen
+
+Tjek at filen er tilføjet Aaron profil - evt. ved at logge Aaron på på en anden client - eller ved at kigge i sharet/Aarons folder for profilerne
+
+
+
+

@@ -1,0 +1,16 @@
+﻿OS 840 Child domain
+
+
+Opret Child domain til dit domain	
+Child domainet skal hedde test.<dit eksisterende domain navn>.local
+
+
+Du behøver kun lave en domain controller til domain'et
+
+Opret en bruger på child domainet og log brugeren på clienten.
+
+
+
+
+	
+

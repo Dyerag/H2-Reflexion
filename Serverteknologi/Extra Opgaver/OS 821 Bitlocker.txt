@@ -1,0 +1,16 @@
+På din client: (vær logget på med din domain admin)
+
+Shrink drev c: med ca 10 gb - brug disk management
+opret drev d: 
+
+krypter drev d: med bitlocker
+brug google help
+
+log på client med en alm. bruger og tjek om vedkommende har adgang til drev d:
+
+smid d: drevet over i en anden maskine(hyper-v) og læg mærke til forskellen
+(svarende til at disken er blevet stjålet og sat ind i en anden maskine)
+
+Sæt disken retur inden du fortsætter med opgave OS822
+
+

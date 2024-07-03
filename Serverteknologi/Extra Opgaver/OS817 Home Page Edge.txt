@@ -1,0 +1,7 @@
+OS817
+
+Lav en GPO som sætter startsiden på Edge til dr.dk
+
+Bemærk: du skal hente nye template filer ned fra nettet, samt oprette et central store.
+
+Google er et godt værktøj til at finde løsningen, søg f.eks på: create a central store for group policy
